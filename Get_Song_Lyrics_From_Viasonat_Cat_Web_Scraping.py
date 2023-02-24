@@ -1,3 +1,4 @@
+import time
 from bs4 import BeautifulSoup
 import requests
 
@@ -7,7 +8,6 @@ import requests
 
 def get_lyric_save_on_txt_file(link=None):
     # The User Inserts here a valid viasona.cat link of a song lyric
-
     if link is None:
         print("Insert Web Link from Viasona.Cat:\n")
         WEB = input()
@@ -18,17 +18,12 @@ def get_lyric_save_on_txt_file(link=None):
     response = requests.get(WEB)
     web_page = response.text
     soup = BeautifulSoup(web_page, "html.parser")
-    # print(soup.prettify)
 
     # We get hold of the title here
     song_title = soup.find(name="h1", attrs={"class": "titol-pagina"})
 
-    # print("Song: ", song_title.text)
-
     # We get hold of the group name or singer here
     group_or_singer = soup.find(name="h2", attrs={"class": "subtitol-pagina"})
-
-    # print("Group:", group_or_singer.text)
 
     # We get hold of the lyrics here
     lyrics = soup.find_all(
@@ -48,13 +43,35 @@ def get_lyric_save_on_txt_file(link=None):
 
     # We create a new .txt file and add the lyrics to it
     with open(
-        f"lyrics_from_viasona/{song_title.text} from {group_or_singer.text}.txt", "w"
+        f"Lyrics_from_viasona/{song_title.text} from {group_or_singer.text}.txt", "w"
     ) as lyrics_file:
         for line in song_lyrics:
             lyrics_file.write(line)
 
-    print("Done")
+    # ----------------------------------------------------------------
+    done = """
+    
 
+ .----------------.  .----------------.  .-----------------. .----------------. 
+| .--------------. || .--------------. || .--------------. || .--------------. |
+| |  ________    | || |     ____     | || | ____  _____  | || |  _________   | |
+| | |_   ___ `.  | || |   .'    `.   | || ||_   \|_   _| | || | |_   ___  |  | |
+| |   | |   `. \ | || |  /  .--.  \  | || |  |   \ | |   | || |   | |_  \_|  | |
+| |   | |    | | | || |  | |    | |  | || |  | |\ \| |   | || |   |  _|  _   | |
+| |  _| |___.' / | || |  \  `--'  /  | || | _| |_\   |_  | || |  _| |___/ |  | |
+| | |________.'  | || |   `.____.'   | || ||_____|\____| | || | |_________|  | |
+| |              | || |              | || |              | || |              | |
+| '--------------' || '--------------' || '--------------' || '--------------' |
+ '----------------'  '----------------'  '----------------'  '----------------' 
+
+
+    """
+    print(done)
+
+
+# ----------------------------------------------------------------
 
 if __name__ == "__main__":
     get_lyric_save_on_txt_file()
+
+    time.sleep(3)
