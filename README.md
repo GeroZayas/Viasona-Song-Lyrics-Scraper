@@ -1,6 +1,6 @@
 
 # Get Song Lyrics from Viasona.Cat CLI
----> [LINK to code](https://github.com/GeroZayas/Python-Practice/blob/main/Get_Song_Lyrics_From_Viasonat_Cat_Web_Scraping.py) <---
+---> [LINK to code](https://github.com/GeroZayas/Viasona-Song-Lyrics-Scraper/blob/master/Get_Song_Lyrics_From_Viasonat_Cat_Web_Scraping.py) <---
 
 A CLI program to scrape song lyrics from viasona.cat and save them as text files to improve our Catalan vocabulary learning. 
 
