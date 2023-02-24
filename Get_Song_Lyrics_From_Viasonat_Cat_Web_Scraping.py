@@ -73,5 +73,4 @@ def get_lyric_save_on_txt_file(link=None):
 
 if __name__ == "__main__":
     get_lyric_save_on_txt_file()
-
     time.sleep(3)
